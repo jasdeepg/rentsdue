@@ -1,0 +1,33 @@
+<html>
+    <title>Rent's Due</title>
+    <head> 
+        <link rel='stylesheet' href="{{ url_for('static', filename='foundation.css') }}">
+        <script type="text/javascript" src="./static/app.js"></script>
+        <script type="text/javascript" src="./static/jquery.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body style="background:#e7530b;color:white;font-family:'Nunito', sans-serif;"> 
+    	<div class="grid-container">
+    			<div class="grid-x">
+	    			<div class="cell small-9">
+	    				<h2><a href="/">Rent's Due</a></h2>
+	    			</div>
+					<div class="cell small-3" style="text-align:right;vertical-align:center;">
+						<a href="/messaging_templates">Messaging Templates</a>
+					</div>
+				</div>
+            <br>
+            <hr>
+            {% block body %}
+            {% endblock %}
+            <hr>
+            <h1 style='text-align:center'>Rent’s Due</h1>
+        </div>
+    </body>
+    <script>
+    {% block js %}
+    {% endblock %}
+	</script>
+</html>
