@@ -8,7 +8,14 @@
         {% block head %}
         {% endblock %}
     </head>
-    <body style="background:#e7530b;color:white;font-family:'Nunito', sans-serif;"> 
+    <body> 
+    	<style>
+    		a {color:white;}
+    		body {background:#e7530b;
+    			  color:white;
+    			  font-family:'Nunito', sans-serif;
+    			}
+    	</style>
     	<div class="grid-container">
     			<div class="grid-x">
 	    			<div class="cell small-9">
@@ -23,7 +30,7 @@
             {% block body %}
             {% endblock %}
             <hr>
-            <h1 style='text-align:center'>Rent’s Due</h1>
+            <h1 style='text-align:center'><a href='/'>Rent’s Due</a></h1>
         </div>
     </body>
     <script>
