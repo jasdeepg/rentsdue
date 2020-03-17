@@ -19,6 +19,5 @@ brew install python3
 
 1. Activate the environment - . venv/bin/activate
 2. Run the application locally
-
-export FLASK_APP=main.py
-python -m flask run
+	- export FLASK_APP=main.py
+	- python -m flask run
