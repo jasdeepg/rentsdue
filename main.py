@@ -3,7 +3,7 @@ from flask import render_template
 from googleapiclient.discovery import build
 
 app = Flask(__name__)
-service = build('civicinfo', 'v2', developerKey='AIzaSyALXTo54A8rFTsrMnT2AT6SUMS5mI4Qn9k');
+service = build('civicinfo', b'v2', developerKey='AIzaSyALXTo54A8rFTsrMnT2AT6SUMS5mI4Qn9k');
 collection = service.representatives();
 
 @app.route('/', methods=['GET','POST'])
