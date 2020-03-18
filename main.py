@@ -1,7 +1,6 @@
 from flask import Flask, request
 from flask import render_template
 from googleapiclient.discovery import build
-from flask_sqlalchemy import SQLAlchemy
 import config
 
 app = Flask(__name__)
