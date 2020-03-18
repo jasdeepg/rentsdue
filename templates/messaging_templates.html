@@ -6,6 +6,53 @@
 
 {% block body %}
 <div class='cell' style='text-align:center'>
+	<p>Use the scripts below the table as a guide.</p>
+	<div class="cell">
+		{% if reps %}
+			<table style='color:black'>
+				<tr>
+					<th>Image</th>
+					<th>Name</th>
+					<th>Office</th>
+					<th>Phone Number</th>
+					<th>URLs</th>
+					<th>Social Media</th>
+				</tr>
+				{% for rep in reps %}
+				<tr>
+					<th>
+						{% if rep.photoUrl %}
+							<img height=100 width=100 src='{{ rep.photoUrl }}'></img>
+						{% endif %}
+					</th>
+					<th>{{ rep.name }}</th>
+					<th>{{ rep.office }}</th>
+					<th>
+						{% if rep.phones %}
+							{% for phone in rep.phones %}
+								<a href='tel:{{ phone }}'>{{ phone }}</a>
+							{% endfor%}
+						{% endif %}
+					</th>
+					<th>
+						{% if rep.urls %}
+							{% for url in rep.urls %}
+								<a href='{{ url }}'>{{ url }}</a>
+							{% endfor %}
+						{% endif %}
+					</th>
+					<th>
+						{% for channel in rep.channels %}
+							{% if channel.type == 'Twitter' %}
+								<a href='https://twitter.com/{{ channel.id }}'><img height=50 width=50 src="https://cdn2.iconfinder.com/data/icons/social-media-square-set/960/Twitter_Sq-512.png"></a>
+							{% endif %}
+						{% endfor %}
+					</th>
+				</tr>
+				{% endfor %}
+			</table>
+		{% endif %}
+	</div>
 	<h1>Scripts</h1>
 </div>
 <div class='grid-x'>
