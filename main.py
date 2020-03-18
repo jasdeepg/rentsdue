@@ -12,7 +12,6 @@ collection = service.representatives();
 def main():
 	if request.method == 'POST':
 		address = request.form.get('address')
-
 		print(address);
 		request_api = collection.representativeInfoByAddress(levels=['administrativeArea1','country'], roles=['headOfGovernment','legislatorLowerBody','legislatorUpperBody'], address=address, includeOffices=None)
 		response = request_api.execute()
@@ -83,7 +82,8 @@ def get_reps(officials, offices, divisions):
 					print(person);
 					rep['person'] = person;
 					rep['name'] = person['name'];
-					rep['party'] = person['party'];
+					if person.get('party'):
+						rep['party'] = person['party'];
 					rep['officeIndex'] = office;
 					if person.get('photoUrl'):
 						rep['photoUrl'] = person['photoUrl'];
