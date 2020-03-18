@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask import render_template
 from googleapiclient.discovery import build
+from flask_sqlalchemy import SQLAlchemy
 import config
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ collection = service.representatives();
 def main():
 	if request.method == 'POST':
 		address = request.form.get('address')
+
 		print(address);
 		request_api = collection.representativeInfoByAddress(levels=['administrativeArea1','country'], roles=['headOfGovernment','legislatorLowerBody','legislatorUpperBody'], address=address, includeOffices=None)
 		response = request_api.execute()
