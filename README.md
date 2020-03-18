@@ -14,6 +14,7 @@ brew install python3
 ### Package management
 
 * Install Flask - https://flask.palletsprojects.com/en/1.1.x/installation/
+* Install Google API Python Client - https://github.com/googleapis/google-api-python-client
 
 ### Running the application
 
