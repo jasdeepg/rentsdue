@@ -6,28 +6,14 @@
 
 {% block body %}
 	<div class="grid-x">
-		<div class="cell large-8 large-offset-4" style="font-size:48px">
-			<p>COVID-19 is wreaking havoc on the service industry across the country. </p>
+		<div class="cell large-8 large-offset-4" style="font-size:72px">
+			<b><p>COVID-19 is wreaking havoc on the service industry across the country. </p>
 
 			<p>Both the healthy and sick are facing an immediate financial crisis.</p>
 			
-			<b><i><p>Rent’s due on the 1st.</p></b></i>
+			<p>Rent’s due on the 1st.</p></b>
 		</div>
 		<br>
-	</div>
-	<div class='cell'>
-		<div class='cell' style='text-align:center;font-size:24px'>
-			Find your local representatives by entering your address below.
-		</div>
-		<form method="POST">
-			<div class="input-group">
-				<span class="input-group-label">Address</span>
-				<input id='address' name='address' class="input-group-field" type="text" placeholder='112 Krog St NE, Atlanta, GA 30307'>
-				<div class="input-group-button">
-					<input type="submit" class="button" value="Submit">
-				</div>
-			</div>
-		</form>
 	</div>
 	<div class='grid-x' style='font-size:20px'>
 		<div class='cell large-2'>
@@ -36,7 +22,8 @@
 		<div class='cell large-6 large-offset-4'>
 			<p>Governors and mayors across the country are taking the unprecedented but necessary step to close all restaurants, bars and all non-essential places people gather. Even before these official bans the COVID-19 crisis forced many restaurants and other service-based businesses to cut shifts, lay off staff, and close indefinitely. This new ban brings the income of workers in those industries to zero. Many expect to earn just 20% of their normal monthly wages in March. The health of our communities should remain our number one priority. However, this urgent health crisis should not stop us from facing this rapidly approaching financial crisis.</p>
 		</div>
-		<br>
+		<div class='cell' style='padding-top:20px'>
+		</div>
 		<div class='cell large-2'>
 			<b><p>Our positions:</p></b>
 		</div>
@@ -53,6 +40,8 @@
 			<p>Employees should not have to choose between going to work sick or being able to pay bills. Small businesses that already struggling due to the COVID-19 outbreak shouldn’t have to endure additional financial burden during this trying time. Paid sick leave is necessary, especially now, but asking the businesses who are most economically vulnerable to foot the bill is not the solution. We need strong government intervention.</p>
 		</div>
 		<br>
+		<div class='cell' style='padding-top:20px'>
+		</div>
 		<div class='cell large-2'>
 			<b><p>What we urgently need you to do:</p></b>
 		</div>
@@ -62,8 +51,32 @@
 			<p>The financial security for so many in Seattle is in the balance. Please act as soon as you can.</p>
 		</div>
 	</div>
+	<div class='cell' style='padding-top:20px'>
+	</div>
+	{% if error_msg %}
+		<div data-alert class="alert-box alert radius" style='text-align:center;background-color:#17a2b8;color:black'>
+	  		{{ error_msg }}
+	  		<a href="#" class="close">&times;</a>
+		</div>
+	{% endif %}
+	<div class='cell'>
+		<div id='rep-input' class='cell' style='text-align:center;font-size:24px'>
+			Find your local representatives by entering your address below.
+		</div>
+		<form method="POST">
+			<div class="input-group">
+				<span class="input-group-label">Address</span>
+				<input id='address' name='address' class="input-group-field" type="text" placeholder='112 Krog St NE, Atlanta, GA 30307'>
+				<div class="input-group-button">
+					<input type="submit" class="button" value="Submit">
+				</div>
+			</div>
+		</form>
+	</div>
 {% endblock %}
     
 {% block js %}
-    
+	{% if jump_div	%}
+		window.location.hash = '#{{ jump_div }}';
+	{% endif %}
 {% endblock %}

@@ -28,6 +28,11 @@ def main():
 def messaging_templates():
 	return render_template('messaging_templates.html')
 
+@app.errorhandler(500)
+def internal_error(error):
+
+    return render_template('index.html', jump_div='rep-input', error_msg='Please enter a full address below.')
+
 def get_reps(officials, offices, divisions):
 	reps = [];
 
