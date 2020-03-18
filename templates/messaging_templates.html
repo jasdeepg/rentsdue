@@ -15,6 +15,7 @@
 					<th>Name</th>
 					<th>Office</th>
 					<th>Phone Number</th>
+					<th>Email</th>
 					<th>URLs</th>
 					<th>Social Media</th>
 				</tr>
@@ -31,6 +32,13 @@
 						{% if rep.phones %}
 							{% for phone in rep.phones %}
 								<a href='tel:{{ phone }}'>{{ phone }}</a>
+							{% endfor%}
+						{% endif %}
+					</th>
+					<th>
+						{% if rep.emails %}
+							{% for email in rep.emails %}
+								<a href='mailto:{{ email }}'>{{ email }}</a>
 							{% endfor%}
 						{% endif %}
 					</th>

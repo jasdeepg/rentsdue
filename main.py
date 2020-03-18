@@ -1,9 +1,10 @@
 from flask import Flask, request
 from flask import render_template
 from googleapiclient.discovery import build
+import config
 
 app = Flask(__name__)
-service = build('civicinfo', b'v2', developerKey='AIzaSyALXTo54A8rFTsrMnT2AT6SUMS5mI4Qn9k');
+service = build('civicinfo', b'v2', developerKey=config.GOOGLE_API_KEY);
 collection = service.representatives();
 
 @app.route('/', methods=['GET','POST'])
